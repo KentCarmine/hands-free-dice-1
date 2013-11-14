@@ -1,0 +1,49 @@
+<div class="container">
+  <h1>Handless Dice</h1>
+
+  <div id="left-column">
+    <div id="key-section" class="medium-padding medium-solid-black-border">
+      <h3 class="underlined">Key</h3>
+      <p><strong>Standard: </strong> Roll any dice (+/- a constant) and display the result</p>
+      <p><strong>10-again: </strong> Reroll (recursively) any dice that roll 10 and display the rolls
+        and a count of rolls greater than or equal to 8</p>
+        <p><strong>9-again: </strong> Reroll (recursively) any dice that roll 9 and display the rolls
+          and a count of rolls greater than or equal to 8</p>
+          <p><strong>8-again: </strong> Reroll (recursively) any dice that roll 8 and display the rolls
+            and a count of rolls greater than or equal to 8</p>
+          </div>
+
+
+          <div id="input-section" class="medium-padding medium-solid-black-border">
+            <form action="/roll" method="POST" id="roll_form">
+              <div id="roll-type-section">
+                <input type="radio" name="roll_type_standard" value="standard" checked>
+                <span class="padded-8px"><strong>Standard</strong></span>
+
+                <input type="radio" name="roll_type_10_again" value="10_again">
+                <span class="padded-8px"><strong>10-again</strong></span>
+
+                <input type="radio" name="roll_type_9_again" value="9_again">
+                <span class="padded-8px"><strong>9-again</strong></span>
+
+                <input type="radio" name="roll_type_8_again" value="8_again">
+                <span class="padded-8px"><strong>8-again</strong></span>
+              </div>
+              <br>
+              <div class="medium-padding light-black-border">
+                Dice Code: <input type="text" name="dice_box" id="dice-box" >
+                <input type="submit" value="Roll!">
+              </div>
+            </form>
+          </div>
+
+        </div>
+
+        <div id="right-column" class="medium-solid-black-border medium-padding">
+          <div id="results-section">
+            <label for="results-label">Roll History</label>
+            <textarea rows="15" cols="50" id="roll-results-history" readonly  tabIndex="-1"></textarea>
+          </div>
+        </div>
+
+      </div>
