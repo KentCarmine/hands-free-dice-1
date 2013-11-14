@@ -10,6 +10,10 @@ $(document).ready(function() {
 
       currently_selected_rb = $('input[name=roll_type]:checked', '#roll_form');
       debugger;
+
+      //TRY var last_rb = $("input[name=roll_type]").last()
+      //TRY currently_selected_rb.get(0) == last_rb.get(0)
+
       if (currently_selected_rb == $("input[name=roll_type]").last()){
         $("input[name=roll_type]").first().prop("checked", true);
       }
