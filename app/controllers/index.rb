@@ -13,3 +13,8 @@ post '/roll' do
 
   display_result(result)
 end
+
+get '/results_frame' do
+
+ erb :_results_frame
+end

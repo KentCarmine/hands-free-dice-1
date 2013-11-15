@@ -17,22 +17,22 @@
           <div id="input-section" class="medium-padding medium-solid-black-border">
             <form action="/roll" method="POST" id="roll_form">
               <div id="roll-type-section">
-                <input type="radio" name="roll_type" value="standard" checked>
+                <input type="radio" name="roll_type" value="standard" tabIndex="-1"checked>
                 <span class="padded-8px"><strong>Standard</strong></span>
 
-                <input type="radio" name="roll_type" value="10_again">
+                <input type="radio" name="roll_type" value="10_again" tabIndex="-1">
                 <span class="padded-8px"><strong>10-again</strong></span>
 
-                <input type="radio" name="roll_type" value="9_again">
+                <input type="radio" name="roll_type" value="9_again" tabIndex="-1">
                 <span class="padded-8px"><strong>9-again</strong></span>
 
-                <input type="radio" name="roll_type" value="8_again">
+                <input type="radio" name="roll_type" value="8_again" tabIndex="-1">
                 <span class="padded-8px"><strong>8-again</strong></span>
               </div>
               <br>
               <div class="medium-padding light-black-border">
-                Dice Code: <input type="text" name="dice_box" id="dice-box" >
-                <input type="submit" value="Roll!">
+                Dice Code: <input type="text" name="dice_box" id="dice-box" tabIndex="-1">
+                <input type="submit" value="Roll!" tabIndex="-1">
               </div>
             </form>
           </div>
@@ -40,10 +40,14 @@
         </div>
 
         <div id="right-column" class="medium-solid-black-border medium-padding">
+
           <div id="results-section">
-            <label for="results-label">Roll History</label>
-            <textarea rows="15" cols="50" id="roll-results-history" readonly  tabIndex="-1"></textarea>
+            <h2><label for="results-label">Roll History</label></h2><br>
+            <!-- <textarea rows="15" cols="50" id="roll-results-history" readonly  tabIndex="-1"></textarea> -->
+            <iframe id="roll-results-history" width="400" src="/results_frame">
+            </iframe>
           </div>
+
         </div>
 
       </div>
