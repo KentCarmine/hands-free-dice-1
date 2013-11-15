@@ -1,4 +1,17 @@
 $(document).ready(function() {
+  var INPUT_KEY_CODES = new Array(32, 8, 46, 107, 109, 110);
+  for (var i = 48; i <= 57; i++){
+    INPUT_KEY_CODES.push(i);
+  }
+  for (var i = 65; i <= 90; i++) {
+    INPUT_KEY_CODES.push(i);
+  }
+
+  for(var i = 96; i <= 105; i++){
+    INPUT_KEY_CODES.push(i);
+  }
+
+  // console.log(INPUT_KEY_CODES);
 
   $(document).on("keydown", function(event){
     keyCode = event.which;
@@ -9,12 +22,12 @@ $(document).ready(function() {
       event.preventDefault();
 
       currently_selected_rb = $('input[name=roll_type]:checked', '#roll_form');
-      debugger;
 
-      //TRY var last_rb = $("input[name=roll_type]").last()
+      var last_rb = $("input[name=roll_type]").last()
       //TRY currently_selected_rb.get(0) == last_rb.get(0)
+      // console.log(currently_selected_rb.get(0) == last_rb.get(0))
 
-      if (currently_selected_rb == $("input[name=roll_type]").last()){
+      if (currently_selected_rb.get(0) == last_rb.get(0)){
         $("input[name=roll_type]").first().prop("checked", true);
       }
       else {
@@ -22,8 +35,24 @@ $(document).ready(function() {
       }
 
     }
-    else if (keyCode == 10){
+    else if (keyCode == 13){
+      // $("#dice-box").focus();
+      event.preventDefault();
 
+      $("#roll_form").submit();
+      $("#dice-box").val("");
+    }
+    else if (INPUT_KEY_CODES.indexOf(keyCode) != -1) {
+      // console.log(event.which);
+      $("#dice-box").focus();
+    }
+    else if (keyCode == 61) {
+      event.preventDefault();
+      $("#dice-box").val($("#dice-box").val() + "+");
+    }
+    else if (keyCode == 173) {
+      event.preventDefault();
+      $("#dice-box").val($("#dice-box").val() + "-");
     }
     else {
       // do nothing FOR NOW
@@ -37,8 +66,9 @@ $(document).ready(function() {
     var data = $(this).serialize();
 
     $.post("/roll", data, function(response){
-      var box = $("#roll-results-history")
-      box.val(box.val() + response)
+      var box = $("#roll-results-history");
+      box.val(box.val() + response);
+      box.get(0).scrollTop = box.get(0).scrollHeight;
     });
   });
 });
