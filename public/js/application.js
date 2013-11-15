@@ -11,8 +11,6 @@ $(document).ready(function() {
     INPUT_KEY_CODES.push(i);
   }
 
-  // console.log(INPUT_KEY_CODES);
-
   $(document).on("keydown", function(event){
     keyCode = event.which;
     // TAB = 9
@@ -24,8 +22,6 @@ $(document).ready(function() {
       currently_selected_rb = $('input[name=roll_type]:checked', '#roll_form');
 
       var last_rb = $("input[name=roll_type]").last()
-      //TRY currently_selected_rb.get(0) == last_rb.get(0)
-      // console.log(currently_selected_rb.get(0) == last_rb.get(0))
 
       if (currently_selected_rb.get(0) == last_rb.get(0)){
         $("input[name=roll_type]").first().prop("checked", true);
@@ -67,8 +63,14 @@ $(document).ready(function() {
 
     $.post("/roll", data, function(response){
       var box = $("#roll-results-history");
-      box.val(box.val() + response);
-      box.get(0).scrollTop = box.get(0).scrollHeight;
+
+      var rollResultsHistoryBody = box.contents().find('#iframe-body');
+      box.contents().find('.most-recent-response').removeClass('most-recent-response');
+
+      rollResultsHistoryBody.append(response);
+
+      var box_top = box.contents().scrollTop();
+      box.contents().scrollTop(box_top + 999999);
     });
   });
 });

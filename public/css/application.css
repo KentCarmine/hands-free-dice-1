@@ -15,7 +15,8 @@
 
 #roll-results-history
 {
-  height: 700px;
+  height: 500px;
+  /*width: 500;*/
 /*  max-height: 80%;*/
   resize: none;
   border: thin solid black;
@@ -63,4 +64,25 @@
 
 .medium-padding {
   padding: 16px;
+}
+
+.red-text {
+  backgroundcolor: red;
+}
+
+.most-recent-response {
+  font-size: 120%;
+  font-style: normal;
+}
+
+.text-italic {
+  font-style: italic;
+}
+
+#iframe-body {
+  margin: 5px;
+}
+
+iframe {
+  overflow-x: hidden;
 }
