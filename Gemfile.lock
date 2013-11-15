@@ -55,6 +55,7 @@ GEM
       eventmachine (>= 0.12.6)
       rack (>= 1.0.0)
     tilt (1.3.3)
+    true-random (1.1.2)
     tzinfo (0.3.35)
 
 PLATFORMS
@@ -71,3 +72,4 @@ DEPENDENCIES
   sinatra
   sinatra-contrib
   thin
+  true-random

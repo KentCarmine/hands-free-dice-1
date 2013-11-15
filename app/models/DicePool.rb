@@ -6,6 +6,7 @@ class DicePool
     @dice_collection = create_dice(parsed_code)
     @operation = generate_operation(parsed_code)
     @constant = generate_constant(parsed_code)
+    # @rng = TrueRandom::Random.new
   end
 
   def roll
@@ -13,7 +14,7 @@ class DicePool
     each_roll = []
 
     @dice_collection.each do |dice|
-      roll = dice.roll
+      roll = dice.roll()
       each_roll << roll
       roll_result += roll
     end

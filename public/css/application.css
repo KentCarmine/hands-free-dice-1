@@ -29,8 +29,9 @@
 }
 
 #right-column {
-  width: 45%;
+  width: 30%;
   float: right;
+  margin-right: 20%;
 }
 
 #user-input-box {
