@@ -9,7 +9,7 @@ post '/roll' do
   # puts "CLIENT SENT:"
   # p dice_code
 
-  result = DicePool.new(dice_code).roll
+  result = DicePool.roll(dice_code)
 
   display_result(result)
 end
